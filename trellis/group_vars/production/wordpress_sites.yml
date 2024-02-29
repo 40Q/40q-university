@@ -11,12 +11,12 @@ wordpress_sites:
     local_path: ..
     public_path: public
     upload_path: content/uploads
-    repo: git@github.com:example/university.40q.agency.git # replace with your Git repo URL
+    repo: git@github.com:40Q/40q-university.git
     branch: master
     multisite:
       enabled: false
     ssl:
-      enabled: false
+      enabled: true
       provider: letsencrypt
     cache:
       enabled: false
