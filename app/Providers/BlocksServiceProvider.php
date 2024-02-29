@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use BlockHandler\Facades\BlockHandler;
+use BlockHandler\Contracts\BlockHandler;
 use Illuminate\Support\ServiceProvider;
 
 class BlocksServiceProvider extends ServiceProvider
