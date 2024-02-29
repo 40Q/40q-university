@@ -7,39 +7,41 @@
 # - TRELLIS_DEPLOY_SSH_KNOWN_HOSTS
 # - ANSIBLE_VAULT_PASSWORD
 
-name: Deploy site
+name: Build and Deploy
 
 on:
-  workflow_dispatch:
   push:
-    branches: [main]
+    branches: [ main, develop ]
+
+env:
+  NODE_VERSION: 18
+  ENVIRONMENT: ${{ ( github.ref_name == 'main' ) && 'production' || 'staging' }}
 
 jobs:
-  example:
+  build-deploy:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Example deploy job
-        run: echo "This is an example deploy job. Uncomment the deploy job in .github/workflows/deploy.yml to use the roots/setup-trellis-cli GitHub Action for deploying this repo to production when pushing to main."
+    - uses: actions/checkout@v3
+    
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: yarn
+        cache-dependency-path: yarn.lock
 
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - uses: actions/setup-node@v3
-  #     with:
-  #       node-version: '16'
-  #       cache: yarn
-  #       cache-dependency-path: yarn.lock
-  #   - uses: shimataro/ssh-key-action@v2
-  #     with:
-  #       key: ${{ secrets.TRELLIS_DEPLOY_SSH_PRIVATE_KEY }}
-  #       known_hosts: ${{ secrets.TRELLIS_DEPLOY_SSH_KNOWN_HOSTS }}
-  #   - uses: webfactory/ssh-agent@v0.5.4
-  #     with:
-  #       ssh-private-key: ${{ secrets.TRELLIS_DEPLOY_SSH_PRIVATE_KEY }}
-  #   - uses: roots/setup-trellis-cli@main
-  #     with:
-  #       ansible-vault-password: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
-  #       repo-token: ${{ secrets.GITHUB_TOKEN }}
-  #   - name: Deploy
-  #     run: cd trellis && trellis deploy production
+    - uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.TRELLIS_DEPLOY_SSH_PRIVATE_KEY }}
+        known_hosts: ${{ secrets.TRELLIS_DEPLOY_SSH_KNOWN_HOSTS }}
+
+    - uses: webfactory/ssh-agent@v0.5.4
+      with:
+        ssh-private-key: ${{ secrets.TRELLIS_DEPLOY_SSH_PRIVATE_KEY }}
+
+    - uses: roots/setup-trellis-cli@main
+      with:
+        ansible-vault-password: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
+        
+    - name: Deploy
+      run: cd trellis & trellis deploy ${{ env.ENVIRONMENT }}
