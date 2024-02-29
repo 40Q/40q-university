@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4ad936911fde8a40b9de9c53a04b6c7",
+    "content-hash": "affc64393d955c6fd67e2dd6b2cfc56c",
     "packages": [
+        {
+            "name": "40q/block-handler",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/40Q/block-handler.git",
+                "reference": "86969294ce15f08398d7e3cc0f3f1bffaf6bb88c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/40Q/block-handler/zipball/86969294ce15f08398d7e3cc0f3f1bffaf6bb88c",
+                "reference": "86969294ce15f08398d7e3cc0f3f1bffaf6bb88c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^9.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BlockHandler\\Providers\\BlockHandlerServiceProvider"
+                    ],
+                    "aliases": {
+                        "BlockHandler": "BlockHandler\\Facades\\BlockHandler"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BlockHandler\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "40Q",
+                    "email": "info@40q.agency"
+                }
+            ],
+            "description": "Handle custom Gutenberg blocks in a Roots/Radicle project",
+            "support": {
+                "issues": "https://github.com/40Q/block-handler/issues",
+                "source": "https://github.com/40Q/block-handler/tree/v1.0.6"
+            },
+            "time": "2023-12-18T18:18:00+00:00"
+        },
         {
             "name": "blade-ui-kit/blade-heroicons",
             "version": "2.1.0",

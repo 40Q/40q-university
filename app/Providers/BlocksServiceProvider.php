@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
+use BlockHandler\Facades\BlockHandler;
 use Illuminate\Support\ServiceProvider;
-use Masterminds\HTML5;
 
 class BlocksServiceProvider extends ServiceProvider
 {
@@ -14,48 +14,50 @@ class BlocksServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        /**
-         * Render `core/button` block with Blade template
-         */
-        add_filter('render_block', function ($block_content, $block) {
-            if ($block['blockName'] === 'core/button') {
-                $html5 = new HTML5();
-                $dom = $html5->loadHTML($block_content);
-                $classes = $dom->getElementsByTagName('a')->item(0)->getAttribute('class');
-                $href = $dom->getElementsByTagName('a')->item(0)->getAttribute('href');
-                $text = $dom->getElementsByTagName('a')->item(0)->textContent;
-                $type = 'primary';
 
-                if (
-                    isset($block['attrs']['className']) &&
-                    strpos($block['attrs']['className'], 'is-style-outline') !== false
-                ) {
-                    $type = 'outline';
+        add_filter('render_block', function ($block_content, $block) {
+            try {
+                $factory = app(BlockHandler::class);
+                $handlerClass = $factory->getHandler($block['blockName']);
+
+                if ($handlerClass) {
+                    $handlerInstance = new $handlerClass();
+                    return $handlerInstance($block_content, $block);
                 }
-
-                return view('blocks.button', [
-                    'type' => $type,
-                    'classes' => $classes,
-                    'href' => $href ?? null,
-                    'text' => $text ?? null,
-                ]);
+            } catch (\Exception $e) {
+                error_log($e->getMessage());
             }
+
             return $block_content;
         }, 10, 2);
 
-        /**
-         * Render `radicle/modal` block with Blade template
-         */
-        add_filter('render_block', function ($block_content, $block) {
-            if ($block['blockName'] === 'radicle/modal') {
-                return view('blocks.modal', [
-                    'block' => $block,
-                    'blockContent' => $block_content,
-                    'buttonText' => $block['attrs']['buttonText'] ?? null,
-                    'heading' => $block['attrs']['heading'] ?? null,
-                ]);
+        add_filter('allowed_block_types', function ($allowed_blocks) {
+            $screen = get_current_screen();
+
+            if ($screen->post_type === 'page') {
+                $by40qBlocksFactory = app(BlockHandler::class);
+                $by40qBlocks = $by40qBlocksFactory->getBlocks();
+                $by40qBlockKeys = array_keys($by40qBlocks);
+
+                return array_merge($by40qBlockKeys, ['core/paragraph', 'core/list', 'core/list-item', 'core/group']);
             }
-            return $block_content;
-        }, 10, 2);
+
+            return $allowed_blocks;
+        });
+
+        add_filter('block_categories_all', function ($categories) {
+            $custom_categories = [
+                [
+                    'slug'  => '40q',
+                    'title' => '40Q Blocks'
+                ],
+                [
+                    'slug'  => 'presentational',
+                    'title' => 'Presentational'
+                ]
+            ];
+
+            return array_merge($custom_categories, $categories);
+        });
     }
 }
