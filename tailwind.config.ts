@@ -42,7 +42,21 @@ export default {
         900: '#312e81',
         950: '#1e1b4b',
       },
+      'primary': '#45C4AF',
+      'auxiliar': '#DAFDB9',
+      'primary-dark': '#13678B',
+      'back-light': '#F1FFEE',
     },
+    extend: {
+      spacing: {
+        '17': '4.25rem',
+      },
+      lineHeight: {
+        '7.5': '1.875rem',
+        '10.5': '2.625rem',
+        '14': '3.5rem',
+      }
+    }
   },
   plugins: [
     forms,
