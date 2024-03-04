@@ -4,7 +4,7 @@ import { __ } from "@wordpress/i18n";
 import {
   GetBlockAttributeValues,
   GetSetAttributesFunction,
-} from "scripts/editor/utils/type-mapping/type-mapping";
+} from "scripts/editor/utils/type-mapping";
 
 /* Component attributes */
 export const attributes = {

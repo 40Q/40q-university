@@ -18,7 +18,7 @@
 
             @include('sections.header')
 
-            <main id="main" class="max-w-5xl mx-auto">
+            <main id="main" class="">
                 <div class="{{ $containerInnerClasses }}">
                     @yield('content')
                 </div>

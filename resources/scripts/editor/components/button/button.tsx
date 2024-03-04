@@ -8,7 +8,7 @@ import { __ } from "@wordpress/i18n";
 import {
   GetBlockAttributeValues,
   GetSetAttributesFunction,
-} from "scripts/editor/utils/type-mapping/type-mapping";
+} from "scripts/editor/utils/type-mapping";
 
 /* Component attributes */
 export const attributes = {
@@ -49,6 +49,7 @@ export const Edit = ({
         />
         <RichText
           tagName="p"
+          className="inline-block p-4 leading-none rounded text-sm uppercase text-white bg-primary border border-primary-dark border-solid"
           placeholder={__("Button")}
           value={buttonText}
           onChange={(buttonText) => setAttributes({ buttonText })}
