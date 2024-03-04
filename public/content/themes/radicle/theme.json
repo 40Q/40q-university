@@ -38,6 +38,11 @@
           "slug": "white"
         },
         {
+          "color": "#012130",
+          "name": "Text",
+          "slug": "text"
+        },
+        {
           "color": "#f9fafb",
           "name": "Gray 50",
           "slug": "gray-50"
@@ -146,6 +151,31 @@
           "color": "#1e1b4b",
           "name": "Indigo 950",
           "slug": "indigo-950"
+        },
+        {
+          "color": "#45c4af",
+          "name": "Primary",
+          "slug": "primary"
+        },
+        {
+          "color": "#dafdb9",
+          "name": "Auxiliar",
+          "slug": "auxiliar"
+        },
+        {
+          "color": "#13678b",
+          "name": "Primary-dark",
+          "slug": "primary-dark"
+        },
+        {
+          "color": "#f1ffee",
+          "name": "Back-light",
+          "slug": "back-light"
+        },
+        {
+          "color": "#d9d9d9",
+          "name": "Detail-gray",
+          "slug": "detail-gray"
         }
       ]
     },
@@ -254,6 +284,11 @@
           "name": "9xl",
           "size": "8rem",
           "slug": "9xl"
+        },
+        {
+          "name": "3xxl",
+          "size": "2rem",
+          "slug": "3xxl"
         }
       ]
     }
