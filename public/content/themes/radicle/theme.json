@@ -146,6 +146,26 @@
           "color": "#1e1b4b",
           "name": "Indigo 950",
           "slug": "indigo-950"
+        },
+        {
+          "color": "#45c4af",
+          "name": "Primary",
+          "slug": "primary"
+        },
+        {
+          "color": "#dafdb9",
+          "name": "Auxiliar",
+          "slug": "auxiliar"
+        },
+        {
+          "color": "#13678b",
+          "name": "Primary-dark",
+          "slug": "primary-dark"
+        },
+        {
+          "color": "#f1ffee",
+          "name": "Back-light",
+          "slug": "back-light"
         }
       ]
     },
