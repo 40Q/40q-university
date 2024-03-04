@@ -19,7 +19,7 @@ import {
 import {
   GetBlockAttributeValues,
   GetSetAttributesFunction,
-} from "scripts/editor/utils/type-mapping/type-mapping";
+} from "scripts/editor/utils/type-mapping";
 
 /* Block name */
 export const name = "by40q/hero";
