@@ -24,7 +24,7 @@ class App extends Composer
     {
         return [
             'containerClasses' => 'max-w-5xl mx-auto',
-            'containerInnerClasses' => 'px-6',
+            'containerInnerClasses' => '',
             'siteName' => $this->siteName(),
         ];
     }
