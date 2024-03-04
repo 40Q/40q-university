@@ -146,6 +146,26 @@
           "color": "#1e1b4b",
           "name": "Indigo 950",
           "slug": "indigo-950"
+        },
+        {
+          "color": "#45c4af",
+          "name": "Primary",
+          "slug": "primary"
+        },
+        {
+          "color": "#dafdb9",
+          "name": "Auxiliar",
+          "slug": "auxiliar"
+        },
+        {
+          "color": "#13678b",
+          "name": "Primary-dark",
+          "slug": "primary-dark"
+        },
+        {
+          "color": "#f1ffee",
+          "name": "Back-light",
+          "slug": "back-light"
         }
       ]
     },
@@ -174,18 +194,18 @@
       "customFontSize": false,
       "fontFamilies": [
         {
-          "fontFamily": "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Arial,\"Noto Sans\",sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\",\"Noto Color Emoji\"",
-          "name": "Ui-sans-serif",
+          "fontFamily": "sans-serif",
+          "name": "Sans-serif",
           "slug": "sans"
         },
         {
-          "fontFamily": "ui-serif,Georgia,Cambria,\"Times New Roman\",Times,serif",
-          "name": "Ui-serif",
+          "fontFamily": "serif",
+          "name": "Serif",
           "slug": "serif"
         },
         {
-          "fontFamily": "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace",
-          "name": "Ui-monospace",
+          "fontFamily": "monospace",
+          "name": "Monospace",
           "slug": "mono"
         }
       ],
@@ -269,24 +289,6 @@
     "typography": {
       "fontFamily": "var(--wp--preset--font-family--sans)",
       "fontSize": "var(--wp--preset--font-size--normal)"
-    },
-    "blocks": {
-      "core/button": {
-        "variations": {
-          "outline": {
-            "border": {
-              "width": "1px"
-            }
-          }
-        }
-      }
-    },
-    "elements": {
-      "button": {
-        "border": {
-          "radius": "0"
-        }
-      }
     }
   }
 }
