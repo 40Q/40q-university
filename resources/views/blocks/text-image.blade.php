@@ -17,7 +17,7 @@
                     :showEyebrow="$showEyebrow" :eyebrow="$eyebrow" :showHeading="$showHeading" 
                     :heading="$heading" :showText="$showText" :text="$text" />
                 @if ($buttonText)
-                    <x-button :text="$buttonText" :href="$buttonHref" :arrow="$buttonShowArrow"/>
+                    <x-button :text="$buttonText" :href="$buttonHref" showArrow="{{ $buttonShowArrow ?? false }}"/>
                 @endif
             </div>
         </div>

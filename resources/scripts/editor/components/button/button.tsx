@@ -22,7 +22,7 @@ export const attributes = {
   },
   buttonShowArrow: {
     type: "boolean",
-    default: true,
+    default: false,
   },
   buttonType: {
     type: "string",

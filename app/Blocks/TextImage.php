@@ -20,7 +20,7 @@ class TextImage implements BlockHandler
             'alt' => $block['attrs']['alt'] ?? '',
             'buttonText' => $block['attrs']['buttonText'] ?? '',
             'buttonHref' => $block['attrs']['buttonHref'] ?? '',
-            'buttonShowArrow' => $blocks['attrs']['buttonShowArrow'] ?? true,
+            'buttonShowArrow' => $block['attrs']['buttonShowArrow'] ?? false,
         ]);
     }
 }
