@@ -24,9 +24,3 @@ class TextImage implements BlockHandler
         ]);
     }
 }
-
-
-// attribute en Button -> buttonShowArrow
-// Change in Buttonsidebar
-// Get it in the text image composer
-// pass it to frontend
