@@ -20,6 +20,10 @@ export const attributes = {
     type: "string",
     default: "",
   },
+  imageClasses: {
+    type: "string",
+    default: "",
+  },
 } as const;
 
 /* Component types */
@@ -28,11 +32,11 @@ type SetAttributesFunction = GetSetAttributesFunction<typeof attributes>;
 
 /* Component edit */
 export const Edit = ({ attributes }: { attributes: BlockAttributeValues }) => {
-  const { url, alt } = attributes;
+  const { url, alt, imageClasses } = attributes;
   return (
     <div className="h-full">
       {url ? (
-        <img src={url} alt={alt}></img>
+        <img src={url} alt={alt} className={imageClasses}></img>
       ) : (
         <div className="bg-[#475569] text-white text-xl text-center font-serif mx-auto flex items-center justify-center h-full px-4">
           <h2>Select an image using the button in the sidebar</h2>
