@@ -3,7 +3,7 @@ import {
   URLInputButton,
   useBlockProps,
 } from "@wordpress/block-editor";
-import { PanelBody, SelectControl } from "@wordpress/components";
+import { PanelBody, SelectControl, ToggleControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import {
   GetBlockAttributeValues,
@@ -19,6 +19,10 @@ export const attributes = {
   buttonHref: {
     type: "string",
     default: "",
+  },
+  buttonShowArrow: {
+    type: "boolean",
+    default: false,
   },
   buttonType: {
     type: "string",
@@ -67,7 +71,8 @@ export const Sidebar = ({
   attributes: BlockAttributeValues;
   setAttributes: SetAttributesFunction;
 }) => {
-  const { buttonType } = attributes;
+  const { buttonType, buttonShowArrow } = attributes;
+
   return (
     <PanelBody title={__("Button Settings")} initialOpen>
       <SelectControl
@@ -78,6 +83,11 @@ export const Sidebar = ({
           { label: "Secondary", value: "secondary" },
         ]}
         onChange={(value) => setAttributes({ buttonType: value })}
+      />
+      <ToggleControl
+        label="Show Icon on Mobile"
+        checked={!!buttonShowArrow}
+        onChange={(buttonShowArrow) => setAttributes({ buttonShowArrow })}
       />
     </PanelBody>
   );

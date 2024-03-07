@@ -15,16 +15,19 @@ class Button extends Component
 
     public $text;
 
+    public $showArrow;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($href = null, $type = null, $text = null)
+    public function __construct($href = null, $type = null, $text = null, $showArrow = false)
     {
         $this->href = $href;
         $this->type = $type;
         $this->text = $text;
+        $this->showArrow = $showArrow;
     }
 
     /**

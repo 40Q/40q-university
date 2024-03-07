@@ -68,7 +68,6 @@ export const Edit = ({
   const blockProps = useBlockProps({
     className: `${containerClasses}`,
   });
-  
   return (
     <>
       <div className="container" {...blockProps}>
