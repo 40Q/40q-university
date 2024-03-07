@@ -36,6 +36,22 @@
                 "wpackagist-plugin/*",
                 "wpackagist-theme/*"
             ]
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "advanced-custom-fields/advanced-custom-fields-pro",
+                "version": "6.2.4",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_PRO_KEY}"
+                },
+                "require": {
+                    "composer/installers": "^2.1",
+                    "ffraenz/private-composer-installer": "^5.0.1"
+                }
+            }
         }
     ],
     "autoload": {
@@ -51,6 +67,7 @@
     "require": {
         "php": ">=8.0",
         "40q/block-handler": "^1.0",
+        "advanced-custom-fields/advanced-custom-fields-pro": "*",
         "blade-ui-kit/blade-heroicons": "^2.1",
         "blade-ui-kit/blade-icons": "^1.5",
         "composer/installers": "^2.2",
@@ -86,7 +103,8 @@
             "composer/installers": true,
             "roots/wordpress-core-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "ffraenz/private-composer-installer": true
         },
         "sort-packages": true,
         "platform": {
