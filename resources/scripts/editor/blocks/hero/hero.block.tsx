@@ -2,30 +2,30 @@ import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import {
-  attributes as imageAttributes,
-  Edit as ImageEdit,
-  Sidebar as ImageSidebar,
-} from "scripts/editor/components/image/image";
+  Edit as SectionHeaderEdit,
+  Sidebar as SectionHeaderSidebar,
+  attributes as sectionHeaderAttributes,
+} from "scripts/editor/components/section-header/section-header";
 import {
   attributes as buttonAttributes,
   Edit as ButtonEdit,
   Sidebar as ButtonSidebar,
 } from "scripts/editor/components/button/button";
 import {
-  Edit as SectionHeaderEdit,
-  Sidebar as SectionHeaderSidebar,
-  attributes as sectionHeaderAttributes,
-} from "scripts/editor/components/section-header/section-header";
+  attributes as imageAttributes,
+  Edit as ImageEdit,
+  Sidebar as ImageSidebar,
+} from "scripts/editor/components/image/image";
 import {
   GetBlockAttributeValues,
   GetSetAttributesFunction,
 } from "scripts/editor/utils/type-mapping";
 
 /* Block name */
-export const name = "by40q/banner";
+export const name = "by40q/hero";
 
 /* Block title */
-export const title = __("Banner", "40q");
+export const title = __("Hero", "40q");
 
 /* Block icon */
 export const icon = "format-image";
@@ -36,8 +36,8 @@ export const category = "40q";
 /* Block attributes */
 export const attributes = {
   ...sectionHeaderAttributes,
-  ...buttonAttributes,
   ...imageAttributes,
+  ...buttonAttributes,
 } as const;
 
 /* Block types */
@@ -53,30 +53,45 @@ export const edit = ({
   setAttributes: SetAttributesFunction;
 }) => {
   const blockProps = useBlockProps({
-    className: "relative py-12 px-16",
+    className: "relative flex flex-col justify-center",
   });
+
+  const sectionHeaderEditProps = {
+    ...attributes,
+    eyebrowClasses: "font-mono !text-auxiliar uppercase",
+    headingClasses: "uppercase font-normal",
+    containerClasses: "text-center px-[20%]",
+    textClasses: "!tracking-normal",
+  };
+
+  const imageProps = {
+    ...attributes,
+    imageClasses: "aspect-[12/5]",
+  }
 
   return (
     <>
       <InspectorControls>
-        <PanelBody title={__("Banner Settings")} initialOpen>
+        <PanelBody title={__("Hero Settings")} initialOpen>
           <SectionHeaderSidebar {...{ attributes, setAttributes }} />
           <ButtonSidebar {...{ attributes, setAttributes }} />
-        </PanelBody>
-        <PanelBody title={__("Image Settings")} initialOpen>
-          <ImageSidebar {...{ attributes, setAttributes }} />
+          <PanelBody title={__("Image Settings")} initialOpen>
+            <ImageSidebar {...{ attributes, setAttributes }} />
+          </PanelBody>
         </PanelBody>
       </InspectorControls>
 
       <div {...blockProps}>
-        <div className="relative z-50 [&>div>p]:text-white [&>div>h2]:text-white w-2/5">
-          <SectionHeaderEdit {...{ attributes, setAttributes }} />
-          <ButtonEdit {...{attributes, setAttributes}} />
+        <div className="absolute z-20 flex flex-col items-center justify-center w-full">
+          <SectionHeaderEdit
+            {...{ attributes: sectionHeaderEditProps, setAttributes }}
+          />
+          <ButtonEdit {...{ attributes, setAttributes }} />
         </div>
-        <div className="absolute z-20 top-0 left-0 w-full h-full [&>div]:w-full [&>div]:h-full [&>div>img]:w-full [&>div>img]:h-full [&>div>img]:object-cover">
-          <ImageEdit {...{ attributes }} />
+        <div className="aspect-[12/5]">
+          <ImageEdit {...{ attributes: imageProps }} />
         </div>
-        <div className="absolute top-0 left-0 w-full h-full z-20 bg-black opacity-50"></div>
+        <div className="absolute w-full h-full z-10 bg-black opacity-50"></div>
       </div>
     </>
   );
