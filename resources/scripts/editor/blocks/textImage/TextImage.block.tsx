@@ -1,5 +1,5 @@
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
-import { PanelBody } from "@wordpress/components";
+import { PanelBody, ToggleControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import {
   attributes as imageAttributes,
@@ -22,10 +22,10 @@ import {
 } from "scripts/editor/utils/type-mapping";
 
 /* Block name */
-export const name = "by40q/banner";
+export const name = "by40q/text-image";
 
 /* Block title */
-export const title = __("Banner", "40q");
+export const title = __("Text-image", "40q");
 
 /* Block icon */
 export const icon = "format-image";
@@ -35,6 +35,10 @@ export const category = "40q";
 
 /* Block attributes */
 export const attributes = {
+  imageLeft: {
+    type: "boolean",
+    default: true,
+  },
   ...sectionHeaderAttributes,
   ...buttonAttributes,
   ...imageAttributes,
@@ -52,31 +56,38 @@ export const edit = ({
   attributes: BlockAttributeValues;
   setAttributes: SetAttributesFunction;
 }) => {
+  const { imageLeft } = attributes;
   const blockProps = useBlockProps({
-    className: "relative py-12 px-16",
+    className: "relative flex gap-8",
   });
 
   return (
     <>
       <InspectorControls>
-        <PanelBody title={__("Banner Settings")} initialOpen>
+        <PanelBody title={__("Text Image Settings")} initialOpen>
           <SectionHeaderSidebar {...{ attributes, setAttributes }} />
           <ButtonSidebar {...{ attributes, setAttributes }} />
         </PanelBody>
         <PanelBody title={__("Image Settings")} initialOpen>
+          <ToggleControl
+              label="Image on Left"
+              checked={!!imageLeft}
+              onChange={(imageLeft) => setAttributes({ imageLeft })}
+            />
           <ImageSidebar {...{ attributes, setAttributes }} />
         </PanelBody>
       </InspectorControls>
 
       <div {...blockProps}>
-        <div className="relative z-50 [&>div>p]:text-white [&>div>h2]:text-white w-2/5">
+        <div className="relative pb-">
+          <div className="z-20 top-0 left-0 w-full h-full [&>div]:w-full [&>div]:h-full [&>div>img]:w-full [&>div>img]:h-full [&>div>img]:object-cover">
+            <ImageEdit {...{ attributes }} />
+          </div>
+        </div>
+        <div className="relative z-50 [&>div>p]:text-primary-dark [&>div>h2]:text-text w-2/5">
           <SectionHeaderEdit {...{ attributes, setAttributes }} />
-          <ButtonEdit {...{attributes, setAttributes}} />
+          <ButtonEdit {...{ attributes, setAttributes }} />
         </div>
-        <div className="absolute z-20 top-0 left-0 w-full h-full [&>div]:w-full [&>div]:h-full [&>div>img]:w-full [&>div>img]:h-full [&>div>img]:object-cover">
-          <ImageEdit {...{ attributes }} />
-        </div>
-        <div className="absolute top-0 left-0 w-full h-full z-20 bg-black opacity-50"></div>
       </div>
     </>
   );

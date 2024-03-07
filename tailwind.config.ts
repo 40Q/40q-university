@@ -16,11 +16,12 @@ export default {
       mono: ["monospace"],
     },
     colors: {
-      inherit: "inherit",
-      current: "currentColor",
-      transparent: "transparent",
-      black: "#000",
-      white: "#fff",
+      inherit: 'inherit',
+      current: 'currentColor',
+      transparent: 'transparent',
+      black: '#000',
+      white: '#fff',
+      text: '#012130',
       gray: {
         50: "#f9fafb",
         100: "#f3f4f6",
@@ -65,15 +66,26 @@ export default {
       'auxiliar': '#DAFDB9',
       'primary-dark': '#13678B',
       'back-light': '#F1FFEE',
+      'detail-gray': '#D9D9D9',
     },
     extend: {
+      fontSize: {
+        '3xxl': '2rem',
+      },
+      maxWidth: {
+        'temp-container': '1308px'
+      },
       spacing: {
         '17': '4.25rem',
+        '3/5': '60%',
       },
       lineHeight: {
         '7.5': '1.875rem',
         '10.5': '2.625rem',
         '14': '3.5rem',
+      },
+      width: {
+        '12/25': '48%',
       }
     }
   },
