@@ -1,5 +1,5 @@
-import { InspectorControls, useBlockProps, RichText} from "@wordpress/block-editor";
-import { PanelBody, ToggleControl } from "@wordpress/components";
+import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
+import { PanelBody } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import {
   attributes as imageAttributes,
