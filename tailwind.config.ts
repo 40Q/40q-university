@@ -76,13 +76,18 @@ export default {
         'temp-container': '1308px'
       },
       spacing: {
+        '3.5': '0.875rem',
         '17': '4.25rem',
+        '23': '5.75rem',
+        '25': '6.25rem',
         '3/5': '60%',
       },
       lineHeight: {
         '7.5': '1.875rem',
         '10.5': '2.625rem',
         '14': '3.5rem',
+        'tighter': '1.15',
+        'comfort': '1.75',
       },
       width: {
         '12/25': '48%',
