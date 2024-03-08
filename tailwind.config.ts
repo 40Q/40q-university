@@ -72,11 +72,8 @@ export default {
         "7.5": "1.875rem",
         "10.5": "2.625rem",
         "14": "3.5rem",
-        tighter: "1.15",
-        comfort: "1.75",
-      },
-      width: {
-        "12/25": "48%",
+        "tighter": "1.15",
+        "comfort": "1.75",
       },
     },
   },
