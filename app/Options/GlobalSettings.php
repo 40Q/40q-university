@@ -2,8 +2,8 @@
 
 namespace App\Options;
 
-use Log1x\AcfComposer\Builder;
 use Log1x\AcfComposer\Options as Field;
+use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class GlobalSettings extends Field
 {
@@ -51,7 +51,7 @@ class GlobalSettings extends Field
                         'required' => 1,
                     ])
                 ->endRepeater()
-                ->addText('university_mail', [
+                ->addText('university_email', [
                     'default_value' => '',
                 ])
                 ->addText('university_address', [
