@@ -58,11 +58,25 @@
                     <x-button :text="$cta['title']" :href="$cta['url']" />
                 @endif
     
-                <div class="open-menu flex flex-shrink-0 flex-col gap-1 lg:hidden">
-                    <div class="w-6 h-0.5 bg-primary-dark"></div>
-                    <div class="w-6 h-0.5 bg-primary-dark"></div>
-                    <div class="w-6 h-0.5 bg-primary-dark"></div>
-                </div>
+                <x-modal title="" class="flex lg:hidden">
+                    <x-slot name="button">
+                        <div class="open-menu flex flex-shrink-0 flex-col gap-1 lg:hidden">
+                            <div class="w-6 h-0.5 bg-primary-dark"></div>
+                            <div class="w-6 h-0.5 bg-primary-dark"></div>
+                            <div class="w-6 h-0.5 bg-primary-dark"></div>
+                        </div>
+                    </x-slot>
+                    <div class="flex flex-col gap-8 items-center py-">
+                        @if (has_nav_menu('primary_navigation'))
+                            <nav class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
+                                {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav flex flex-col text-text items-center gap-5 [&>li]:xl:px-1.5 [&>li]:max-lg:text-3xl max-lg:gap-8 [&>li]:text-lg', 'echo' => false]) !!}
+                            </nav>
+                        @endif
+                        <div class="text-text p-0.5 [&>svg]:w-5 [&>svg]:h-5">
+                            @include('partials.svg.search')
+                        </div>
+                    </div>
+                </x-modal>
             </div>
         </div>
     </div>
