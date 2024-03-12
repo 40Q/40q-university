@@ -39,7 +39,6 @@
   "dependencies": {
     "@roots/wordpress-hmr": "6.16.1",
     "@wordpress/core-data": "^6.29.0",
-    "alpinejs": "3.13.0",
-    "caniuse-lite": "^1.0.30001591"
+    "alpinejs": "3.13.0"
   }
 }
