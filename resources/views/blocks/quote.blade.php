@@ -1,5 +1,5 @@
 <section class="quote-block py-17 md:pt-23 md:pb-16 {{ $darkMode ? 'bg-primary-dark' : 'bg-white' }}">
-  <div class="max-md:px-4 max-w-temp-container mx-auto">
+  <div class="container">
     <div class="w-full flex flex-col md:flex-row gap-8 md:gap-2 lg:gap-8 justify-center">
       <div class="flex flex-col gap-4 md:pr-10 md:pt-2.5 md:w-5/12 flex-shrink-0 box-border md:items-end">
         @if($heading)
