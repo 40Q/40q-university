@@ -1,6 +1,8 @@
 // https://tailwindcss.com/docs/configuration
 import type { Config } from "tailwindcss";
 import forms from "@tailwindcss/forms";
+import typography from "@tailwindcss/typography";
+
 
 export default {
   content: [
@@ -55,6 +57,9 @@ export default {
       "detail-gray": "#D9D9D9",
     },
     extend: {
+      screens: {
+        '2xl': '1536px',
+      },
       fontSize: {
         "3xxl": "2rem",
       },
@@ -80,5 +85,34 @@ export default {
       },
     },
   },
-  plugins: [forms],
+  plugins: [
+    forms,
+    typography,
+    function ({ addComponents }) {
+      addComponents({
+        '.container': {
+          maxWidth: '100%',
+          marginLeft: "auto",
+          marginRight: "auto",
+          padding: '0 1.25rem',
+          '@screen sm': {
+            maxWidth: '540px',
+            padding: '0',
+          },
+          '@screen md': {
+            maxWidth: '720px',
+            padding: '0',
+          },
+          '@screen lg': {
+            maxWidth: '960px',
+            padding: '0',
+          },
+          '@screen xl': {
+            maxWidth: '1304px',
+            padding: '0',
+          },
+        },
+      });
+    },
+  ],
 } satisfies Config;

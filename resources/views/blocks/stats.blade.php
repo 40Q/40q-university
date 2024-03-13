@@ -1,4 +1,4 @@
-<section class="stats-block flex justify-center">
+<section class="stats-block flex py-16 justify-center">
     <div class="container">
         <div class="grid grid-cols-4 gap-6">
             @foreach ($stats as $stat)

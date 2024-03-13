@@ -1,6 +1,6 @@
 <header class="header">
     <div class="py-2.5 bg-primary-dark">
-        <div class="max-md:px-4 max-xl:px-10 max-w-temp-container mx-auto flex items-center justify-between">
+        <div class="container mx-auto flex items-center justify-between">
             <div class="flex flex-col md:flex-row gap-1 md:gap-6">
                 @if($universityEmail)
                     <div class="university-email flex items-center gap-1 text-back-light">
