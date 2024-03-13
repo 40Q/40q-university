@@ -3,7 +3,17 @@ import TemplateButton from "./TemplateButton";
 import { useState } from "react";
 import { select } from "@wordpress/data";
 
-const TemplateControls = ({ layouts }) => {
+type Props = {
+  layouts: Array<{
+    attributes: Array<string>;
+    clientId: string;
+    innerBlocks: Array<null>;
+    isValid: boolean;
+    name: string;
+  }>;
+}
+
+const TemplateControls = ({ layouts }: Props) => {
   const [alreadyOpenModal, setAlreadyOpenModal] = useState(false);
   const [isEditorEmpty, setIsEditorEmpty] = useState(
     !select("core/block-editor").getBlocks().length

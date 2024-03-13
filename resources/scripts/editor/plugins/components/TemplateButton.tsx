@@ -1,16 +1,16 @@
-import { withDispatch } from "@wordpress/data";
+import { withDispatch, Dispatch } from "@wordpress/data";
 import { useState } from "react";
 
-// type Props = {
-//   alreadyOpenModal: boolean,
-//   isEditorEmpty: boolean,
-//   setIsEditorEmpty: boolean,
-//   setAlreadyOpenModal: (e: boolean) => void,
-//   label: string,
-//   layout: boolean,
-//   resetBlocks: boolean,
-//   insertBlocks: boolean,
-// }
+type Props = {
+  alreadyOpenModal: boolean,
+  isEditorEmpty: boolean,
+  setIsEditorEmpty: (e: boolean) => void,
+  setAlreadyOpenModal: (e: boolean) => void,
+  label: string,
+  layout: boolean,
+  resetBlocks: (a: any) => any,
+  insertBlocks: (a: any) => any,
+}
 
 const TemplateButton = ({
   alreadyOpenModal,
@@ -21,7 +21,7 @@ const TemplateButton = ({
   layout,
   resetBlocks,
   insertBlocks,
-}) => {
+}: Props) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -79,13 +79,20 @@ const TemplateButton = ({
   );
 };
 
-export default withDispatch((dispatch) => {
+interface DispatchActions {
+  resetBlocks: (a: any) => any,
+  insertBlocks: (a: any) => any,
+}
+
+type DispatchFunction = (dispatch: Dispatch) => DispatchActions;
+
+const mapDispatchToProps: DispatchFunction = (dispatch) => {
   const { resetBlocks, insertBlocks } = dispatch("core/block-editor");
   
-  return {
-    resetBlocks,
-    insertBlocks,
-  };
-})(TemplateButton);
+  return { resetBlocks, insertBlocks };
+}
+
+const dispatchh = withDispatch(mapDispatchToProps)(TemplateButton) as MyComponentType;
+export default dispatchh;
 
 
