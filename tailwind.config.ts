@@ -108,6 +108,10 @@ export default {
             padding: '0',
           },
           '@screen xl': {
+            maxWidth: '1140px',
+            padding: '0',
+          },
+          '@screen 2xl': {
             maxWidth: '1304px',
             padding: '0',
           },
