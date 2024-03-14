@@ -12,18 +12,7 @@ return [
     |
     */
 
-    'post_types' => [
-        'seed' => [
-            'menu_icon' => 'dashicons-star-filled',
-            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
-            'show_in_rest' => true,
-            'names' => [
-                'singular' => __('Seed', 'radicle'),
-                'plural' => __('Seeds', 'radicle'),
-                'slug' => 'seeds',
-            ]
-        ],
-    ],
+    'post_types' => [],
 
     /*
     |--------------------------------------------------------------------------
