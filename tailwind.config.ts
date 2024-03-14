@@ -58,7 +58,7 @@ export default {
     },
     extend: {
       screens: {
-        '2xl': '1440px',
+        '2xl': '1536px',
       },
       fontSize: {
         "3xxl": "2rem",
