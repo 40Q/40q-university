@@ -58,7 +58,7 @@ export default {
     },
     extend: {
       screens: {
-        '2xl': '1536px',
+        '2xl': '1440px',
       },
       fontSize: {
         "3xxl": "2rem",
@@ -108,6 +108,10 @@ export default {
             padding: '0',
           },
           '@screen xl': {
+            maxWidth: '1140px',
+            padding: '0',
+          },
+          '@screen 2xl': {
             maxWidth: '1304px',
             padding: '0',
           },
