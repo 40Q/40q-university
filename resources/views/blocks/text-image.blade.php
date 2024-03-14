@@ -9,7 +9,7 @@
                     </div>
                 </div>
             @endif
-            <div class="max-lg:container max-md:px-4 lg:w-1/2 relative z-50 text-white flex flex-col items-start md:items-center justify-center lg:justify-start lg:items-start gap-3 lg:gap-4">
+            <div class="container lg:w-1/2 relative z-50 text-white flex flex-col items-start md:items-center justify-center lg:justify-start lg:items-start gap-3 lg:gap-4">
                 <x-section-header containerClasses="text-start md:text-center lg:text-start lg:w-auto" 
                     eyebrowClasses="max-md:leading-none text-primary-dark max-md:uppercase" 
                     headingClasses="text-text max-md:text-3xxl max-md:font-medium max-md:leading-tight tracking-tight md:tracking-wider max-md:uppercase" 
