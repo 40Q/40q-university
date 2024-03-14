@@ -88,8 +88,9 @@
         "roots/wp-password-bcrypt": "1.1.0",
         "roots/wp-stage-switcher": "^2.2",
         "vlucas/phpdotenv": "^5.5",
+        "wpackagist-plugin/miniorange-saml-20-single-sign-on": "*",
         "wpackagist-plugin/safe-svg": "^2.1",
-        "wpackagist-plugin/miniorange-saml-20-single-sign-on": "*"
+        "wpackagist-plugin/user-role-editor": "^4.64"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
