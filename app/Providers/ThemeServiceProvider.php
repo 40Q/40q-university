@@ -47,6 +47,24 @@ class ThemeServiceProvider extends SageServiceProvider
                     array_merge(config('theme.sidebar.config'), $instance)
                 ));
         });
+
+
+        add_action('init', function () {
+            $role = get_role('author');
+            $role->add_cap('read_others_pages', true);
+        });
+
+
+        add_action(
+            'pre_get_posts',
+            function ($query) {
+                if (!current_user_can('read_others_pages')) {
+                    if ($query->is_admin) {
+                        $query->set('author', get_current_user_id());
+                    }
+                }
+            }
+        );
     }
 
     /**
