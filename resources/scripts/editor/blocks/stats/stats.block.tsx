@@ -2,6 +2,7 @@ import {
   RichText,
   useBlockProps,
 } from "@wordpress/block-editor";
+import { Block } from "@wordpress/blocks";
 import { __ } from "@wordpress/i18n";
 import {
   AddItemButton,
@@ -117,3 +118,8 @@ export const save = () => <></>;
 
 /* Block styles */
 export const styles = [];
+
+/* Block preview */
+export const example: Block["example"] = {
+  attributes: {},
+};
