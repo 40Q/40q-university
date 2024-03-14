@@ -1,5 +1,6 @@
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
+import { Block } from "@wordpress/blocks";
 import { __ } from "@wordpress/i18n";
 import {
   Edit as SectionHeaderEdit,
@@ -28,7 +29,7 @@ export const name = "by40q/hero";
 export const title = __("Hero", "40q");
 
 /* Block icon */
-export const icon = "format-image";
+export const icon = "align-center";
 
 /* Block category */
 export const category = "40q";
@@ -102,3 +103,14 @@ export const save = () => <></>;
 
 /* Block styles */
 export const styles = [];
+
+/* Block preview */
+export const example: Block["example"] = {
+  attributes: {
+    eyebrow: "Lorem ipsum",
+    heading: "40 UNIVERSITY",
+    text: "Sed sagittis nisi eget lectus molestie, porta imperdiet nulla mollis. Fusce dignissim malesuada felis. Donec non augue sit amet justo molestie facilisis sed eu lorem",
+    url: "#",
+    buttonText: "Read More",
+  },
+};

@@ -1,5 +1,6 @@
 import { InspectorControls, useBlockProps, RichText} from "@wordpress/block-editor";
 import { PanelBody, ToggleControl } from "@wordpress/components";
+import { Block } from "@wordpress/blocks";
 import { __ } from "@wordpress/i18n";
 import {
   GetBlockAttributeValues,
@@ -13,7 +14,7 @@ export const name = "by40q/quote";
 export const title = __("Quote", "40q");
 
 /* Block icon */
-export const icon = "format-image";
+export const icon = "format-quote";
 
 /* Block category */
 export const category = "40q";
@@ -118,3 +119,8 @@ export const save = () => <></>;
 
 /* Block styles */
 export const styles = [];
+
+/* Block preview */
+export const example: Block["example"] = {
+  attributes: {},
+};

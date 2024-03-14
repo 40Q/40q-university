@@ -1,5 +1,6 @@
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
+import { Block } from "@wordpress/blocks";
 import { __ } from "@wordpress/i18n";
 import {
   attributes as imageAttributes,
@@ -87,3 +88,10 @@ export const save = () => <></>;
 
 /* Block styles */
 export const styles = [];
+
+/* Block preview */
+export const example: Block["example"] = {
+  attributes: {
+    url: "#",
+  },
+};

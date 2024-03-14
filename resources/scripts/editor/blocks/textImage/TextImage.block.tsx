@@ -1,5 +1,6 @@
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import { PanelBody, ToggleControl } from "@wordpress/components";
+import { Block } from "@wordpress/blocks";
 import { __ } from "@wordpress/i18n";
 import {
   attributes as imageAttributes,
@@ -28,7 +29,7 @@ export const name = "by40q/text-image";
 export const title = __("Text-image", "40q");
 
 /* Block icon */
-export const icon = "format-image";
+export const icon = "align-left";
 
 /* Block category */
 export const category = "40q";
@@ -98,3 +99,10 @@ export const save = () => <></>;
 
 /* Block styles */
 export const styles = [];
+
+/* Block preview */
+export const example: Block["example"] = {
+  attributes: {
+    url: "#",
+  },
+};
